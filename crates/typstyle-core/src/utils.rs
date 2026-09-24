@@ -11,6 +11,13 @@ pub fn strip_trailing_whitespace(s: &str) -> String {
     res
 }
 
+/// Trim final newlines from the input string, leaving exactly one.
+pub fn trim_final_newlines(s: &str) -> String {
+    let mut res = s.trim_end_matches('\n').to_string();
+    res.push('\n');
+    res
+}
+
 pub fn count_spaces_after_last_newline(s: &str, i: usize) -> usize {
     // Ensure the byte position `i` is a valid UTF-8 boundary
     debug_assert!(
