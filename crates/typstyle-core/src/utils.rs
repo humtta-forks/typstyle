@@ -105,6 +105,14 @@ mod tests {
     }
 
     #[test]
+    fn test_trim_final_newlines() {
+        let s = trim_final_newlines("Hello");
+        assert_eq!(s, "Hello\n");
+        let s = trim_final_newlines("Hello\n\n");
+        assert_eq!(s, "Hello\n");
+    }
+
+    #[test]
     fn test_change_indent_basic() {
         let input = "    line1\n        line2\n    line3";
         let output = change_indent(input, 4, 2);
